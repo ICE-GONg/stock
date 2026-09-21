@@ -25,6 +25,7 @@ jobs:
       - name: Build static site
         run: |
           mkdir -p _site
+          cat site.part* > site.tar.gz.b64
           base64 --decode site.tar.gz.b64 > site.tar.gz
           tar -xzf site.tar.gz -C _site
       - name: Configure Pages
